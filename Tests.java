@@ -1,28 +1,67 @@
 //Name: Tyesia King
-//Assignment2: Tests Java
+//Assignment3: Tests Java
 
 import java.util.Scanner;
 
 public class Tests {
-    public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in);
-
-        System.out.print ("Enter Test Score 1: ");
-        double testscore1 = scnr.nextDouble();
-
-        System.out.print("Enter Test Score 2: ");
-        double testscore2 = scnr.nextDouble();
-
-        System.out.print("Enter Test Score 3: ");
-        double testscore3 = scnr.nextDouble();
-
-        double average = (testscore1 + testscore2 + testscore3) / 3;
-        System.out.println("Test Score 1: " + testscore1);
-        System.out.println("Test Score 2: " + testscore2);
-        System.out.println("Test Score 3: " + testscore3);
-        System.out.println("The average of 3 test scores is: " + average);
     
+    //Fields
+    private double ave;
+    private int count;
+    private int score;
+
+    //Constructor
+    public Tests() {
+        ave = 0.0;
+        count = 0;
+        score = 0;
+    }
+
+    //Getters
+    public double getAve() {
+        return ave;
+    }
+    
+    public int getCount() {
+        return count;
+    }
+    
+    public int getScore() {
+        return score;
+    }
+
+    //Setters
+    public void setScore(int newScore) {
+        score = newScore;
+    }
+
+    //Methods to enter test scores and calculate average
+    public void getAverage() {
+       Scanner scnr = new Scanner(System.in);
+
+       int sum = 0;
+       int localCount = 0;
+        
+
+        System.out.print("Enter a test score (or -1 to quit): ");
+        int testscore = scnr.nextInt();
+
+        while (testscore != -1) {
+
+            sum += testscore;
+            localCount++;
+
+            System.out.print("Enter a test score (or -1 to quit): ");
+            testscore = scnr.nextInt();
+        }
+        ave = (double) sum / localCount;
+
+        count = localCount;
         scnr.close();
-    
+
+    }
+
+    public String toString() {
+        return "The average of the " + count + " scores entered is: " + String.format("%.2f", ave);
     }
 }
