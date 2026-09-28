@@ -1,3 +1,7 @@
+//Tyesia King
+//MOD 4 Assignment 1 Calculator
+
+
 public class Calc {
     //private data fields
     private double num1;

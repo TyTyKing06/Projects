@@ -1,3 +1,6 @@
+//Tyesia King
+//MOD 4 Assignment 1 Runner-Calculator
+
 //this class tests all methods in the Calc class
 //the Calc class exposes the following methods:
 //add, subtract, multiply, divide
