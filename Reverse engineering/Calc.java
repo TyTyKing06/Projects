@@ -1,6 +1,7 @@
 //Tyesia King
 //MOD 4 Assignment 1 Calculator
 
+import java.util.Scanner;
 
 public class Calc {
     //private data fields
@@ -51,5 +52,20 @@ public class Calc {
         return "Displaying private data fields using toString():\n" +
                 "Num1: " + num1 + "\n" +
                 "Num2: " + num2;
+    
     }
+
+    //method to get a valid number from the user
+    public double getValidNumber(Scanner scan) {
+        while (true) {
+            
+            if (scan.hasNextDouble()) {
+                return scan.nextDouble();
+            } else {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scan.next(); // consume the invalid input
+            }
+        }
+    }
+  
 }
