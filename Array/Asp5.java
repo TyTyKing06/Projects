@@ -1,3 +1,6 @@
+ //Name: Tyesia King
+ //Module: 5 Assignment 2 ArrayList
+ 
  import java.util.ArrayList;
 
 public class Asp5 {
@@ -20,13 +23,13 @@ public class Asp5 {
         numbers.add(46);
         numbers.add(75);
 
-        //Print the contents of the String ArrayList
+        //Displayss the items of the String ArrayList
         System.out.println("Original fruits:");
         for (String fruit : fruits) {
             System.out.println(fruit);
         }
 
-        //Print the contents of the Integer ArrayList
+        //Displays the items of the Integer ArrayList
         System.out.println("\nOriginal numbers:");
         for (Integer number : numbers) {
             System.out.println(number);
@@ -35,7 +38,7 @@ public class Asp5 {
         //Remove the second item from the String ArrayList
         fruits.remove(1);
 
-        //Print the contents of the String ArrayList after removal
+        //Displays the items of the String ArrayList after removal
         System.out.println("\nUpdated fruits:");
         for (String fruit : fruits) {
             System.out.println(fruit);
@@ -44,7 +47,7 @@ public class Asp5 {
         //Change the third item in the Integer ArrayList to 100
         numbers.set(2, 100);   
 
-        //Print the contents of the Integer ArrayList after the change
+        //Displays the items of the Integer ArrayList after the change
         System.out.println("\nUpdated numbers:");
         for (Integer number : numbers) {
             System.out.println(number);
