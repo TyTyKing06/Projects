@@ -1,31 +1,36 @@
-import java.util.Scanner;
+import javax.swing.JOptionPane;
+/**
+ This program demonstrates the Exam class,
+ which extends the Assessment class.
+ */
+
 public class Runner {
-    public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in);
 
-        Pet pet1 = new Pet();
-        System.out.println(pet1);
-        System.out.println();
+        public static void main(String[] args)
+        {
+            String input;     // To hold input
+            int questions;    // Number of questions
+            int missed;       // Number of questions missed
 
-        Pet pet2 = new Pet("Buster", "Dog", 3);
-        System.out.println(pet2);   
-        System.out.println();
+            // Get the number of questions on the exam
+            input = JOptionPane.showInputDialog("How many questions are on the exam?");
+            questions = Integer.parseInt(input);
 
-        Pet pet3 = new Pet();
-        System.out.print("Enter your pet's name: ");
-        String name = scnr.nextLine();
-        System.out.print("Enter your pet's type: ");
-        String type = scnr.nextLine();
-        System.out.print("Enter your pet's age: ");
-        int age = scnr.nextInt();
+            // Get the number of questions the student missed
+            input = JOptionPane.showInputDialog("How many questions did the student miss?");
+            missed = Integer.parseInt(input);
 
-        pet3.setName(name);
-        pet3.setType(type);
-        pet3.setAge(age);
+            // Create an Exam object
+            Exam exam = new Exam(questions, missed);
 
-        System.out.println();
-        System.out.println(pet3);
+            // Display the test results
+            String message = "Each question counts " + exam.getPointsEach();
+            message += " points.\nThe exam score is " + exam.getScore();
+            message += "\nThe exam grade is " + exam.getGrade();
+            JOptionPane.showMessageDialog(null, message);
 
-        scnr.close();
+            System.exit(0);
+        }
     }
-}
+
+
