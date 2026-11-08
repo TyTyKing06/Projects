@@ -4,7 +4,7 @@
 public class Exam extends Assessment {
     private int numQuestions;  // Number of questions on the exam
     private int numMissed;     // Number of questions missed
-    private double pointsEach;  // Points for each question
+    private int pointsEach;  // Points for each question
 
     
     public Exam(int numQuestions, int numMissed) //The constructor accepts the number of questions on the exam and the number of questions missed as arguments.
@@ -13,14 +13,18 @@ public class Exam extends Assessment {
         this.numMissed = numMissed;
 
         // Calculate the points for each question
-        if (numQuestions > 0) {
-            this.pointsEach = 100.0 / numQuestions;
-        } else {
-            this.pointsEach = 0.0; // Avoid division by zero
+        try {
+            this.pointsEach = 100 / numQuestions;
+        } catch (ArithmeticException e) {
+            this.pointsEach = 0; // Avoid division by zero
+            System.out.println("Error: Cannot divide by zero.");
         }
 
-        double score = 100.0 - (numMissed * this.pointsEach);
-        setScore((int) score); // Set the score using the inherited method
+        int score = 0;
+        if(numQuestions > 0) {
+            score =((numQuestions - numMissed) * 100) / numQuestions; // Calculate the score based on the number of questions and missed questions
+        }
+        setScore(score); // Set the score using the inherited method
     }
 
            
@@ -48,8 +52,8 @@ public class Exam extends Assessment {
     }
 
     
-    public double getPointsEach()  //The getPointsEach method returns the number of points each question is worth.
+    public int getPointsEach()  //The getPointsEach method returns the number of points each question is worth.
     {
         return this.pointsEach;
     }
-}   
+}  
